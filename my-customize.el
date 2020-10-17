@@ -14,8 +14,9 @@
 ;;; Code:
 
 (require 'ivy)
+(require 'counsel)
 
-(defun mycustomize-select-shell ()
+(defun my-customize-select-shell ()
   "Select shell to run."
   (interactive)
   (ivy-read "Use: " '("shell-command"
@@ -23,7 +24,7 @@
             :preselect "^shell-command"
             :action (lambda (user-input)
                       (counsel-M-x-action user-input))
-            :caller 'mycustomize-select-shell))
+            :caller 'my-customize-select-shell))
 
 (provide 'my-customize)
 ;;; my-customize.el ends here
