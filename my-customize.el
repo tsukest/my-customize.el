@@ -26,5 +26,11 @@
                       (counsel-M-x-action user-input))
             :caller 'my-customize-select-shell))
 
+(defun my-customize-projectile-counsel-git-grep ()
+  "Perform counsel-git-grep in the project."
+  (interactive)
+  (let* ((project-root (projectile-ensure-project (projectile-project-root))))
+    (counsel-git-grep nil project-root nil)))
+
 (provide 'my-customize)
 ;;; my-customize.el ends here
