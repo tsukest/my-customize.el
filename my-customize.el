@@ -17,7 +17,7 @@
 (require 'counsel)
 (require 'projectile)
 
-(defun my-customize-select-shell ()
+(defun my-select-shell ()
   "Select shell to run."
   (interactive)
   (ivy-read "Use: " '("shell-command"
@@ -27,13 +27,13 @@
                       (counsel-M-x-action user-input))
             :caller 'my-customize-select-shell))
 
-(defun my-customize-projectile-counsel-git-grep ()
+(defun my-projectile-counsel-git-grep ()
   "Perform counsel-git-grep in the project."
   (interactive)
   (let ((project-root (projectile-ensure-project (projectile-project-root))))
     (counsel-git-grep nil project-root nil)))
 
-(defun my-customize-projectile-vc ()
+(defun my-projectile-vc ()
   "Open `maigt-status' at the root of the project."
   (interactive)
   (let ((project-root (projectile-ensure-project (projectile-project-root))))
