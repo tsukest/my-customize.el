@@ -39,5 +39,10 @@
   (let ((project-root (projectile-ensure-project (projectile-project-root))))
     (magit-status project-root)))
 
+(defun my-other-window-1 ()
+  "Select another window in back cyclic ordering of windows."
+  (interactive)
+  (other-window -1))
+
 (provide 'my-customize)
 ;;; my-customize.el ends here
