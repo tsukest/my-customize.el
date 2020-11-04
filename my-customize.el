@@ -44,5 +44,21 @@
   (interactive)
   (other-window -1))
 
+(defun gov-list ()
+  "List version of Go."
+  (interactive)
+  (let ((version (process-lines "gov" "list")))
+    (message (mapconcat 'identity version "\n"))))
+
+(defun gov-use ()
+  "Change version of Go."
+  (interactive)
+  (ivy-read "Version: " (process-lines "gov" "list")
+            :action (lambda (ver)
+                      (progn
+                        (process-lines "gov" "use" ver)
+                        (message "use go %s" ver)))
+            :caller 'gov-use))
+
 (provide 'my-customize)
 ;;; my-customize.el ends here
