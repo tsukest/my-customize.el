@@ -60,5 +60,13 @@
                         (message "use go %s" ver)))
             :caller 'gov-use))
 
+(defun gov-install ()
+  "Change version of Go."
+  (interactive)
+  (ivy-read "Version: " nil
+            :action (lambda (ver)
+                      (start-process "gov-install-process" "*gov-install*" "gov" "install" ver))
+            :caller 'gov-install))
+
 (provide 'my-customize)
 ;;; my-customize.el ends here
