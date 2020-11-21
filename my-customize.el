@@ -44,6 +44,20 @@
   (interactive)
   (other-window -1))
 
+(defun my-find-interactive ()
+  "Find file."
+  (interactive)
+  (if (not (magit-toplevel))
+      (counsel-fzf)
+    (counsel-git)))
+
+(defun my-grep-interactive ()
+  "Grep for a string in the directory."
+  (interactive)
+  (if (not (magit-toplevel))
+      (counsel-rg)
+    (counsel-git-grep)))
+
 (defun gov-list ()
   "List version of Go."
   (interactive)
