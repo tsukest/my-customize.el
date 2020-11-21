@@ -16,6 +16,7 @@
 (require 'ivy)
 (require 'counsel)
 (require 'projectile)
+(require 'magit)
 
 (defun my-select-shell ()
   "Select shell to run."
